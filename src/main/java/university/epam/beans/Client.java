@@ -1,4 +1,4 @@
-package university.epam;
+package university.epam.beans;
 
 
 public class Client {
