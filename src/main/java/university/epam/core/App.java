@@ -3,18 +3,20 @@ package university.epam.core;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import university.epam.beans.Client;
 import university.epam.beans.ConsoleEventLogger;
 
 public class App {
 
-    university.epam.beans.Client client;
-    university.epam.beans.ConsoleEventLogger eventLogger;
+    Client client;
+    ConsoleEventLogger eventLogger;
 
     public static void main(String[] args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
         App app = (App) ctx.getBean("app");
 
         app.logEvent("Some event for user 1");
+        app.logEvent("Some event for user 2");
 
     }
 
@@ -25,7 +27,7 @@ public class App {
         eventLogger.logEvent(message);
     }
 
-    App (university.epam.beans.Client client, ConsoleEventLogger eventLogger) {
+    App(Client client, ConsoleEventLogger eventLogger) {
         this.client = client;
         this.eventLogger = eventLogger;
     }
